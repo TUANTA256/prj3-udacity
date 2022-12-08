@@ -265,6 +265,7 @@ jobs:
     docker:
       - image: travnels/circleci-nodejs-awscli:latest
     steps:
+      - checkout
       - run:
             name: Install dependencies
             command: |
@@ -295,6 +296,7 @@ jobs:
     docker:
       - image: python:3.7-alpine3.11
     steps:
+      - checkout
       - add_ssh_keys:
           fingerprints: ["1d:71:0c:64:42:0f:cb:51:ac:c6:e4:6f:c3:1a:ae:47"]
       - attach_workspace:
@@ -335,6 +337,7 @@ jobs:
     docker:
       - image: python:3.7-alpine3.11
     steps:
+      - checkout
       - run:
           name: Install dependencies
           command: |
