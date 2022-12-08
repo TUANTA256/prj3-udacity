@@ -270,6 +270,7 @@ jobs:
             name: Install dependencies
             command: |
               npm i tar.gz
+              apk add --update nodejs npm curl
       - attach_workspace:
           at: ~/
       - run:
@@ -281,12 +282,7 @@ jobs:
             echo "API_URL = ${API_URL}"
             echo API_URL="http://${BACKEND_IP}:3030" >> frontend/.env
             cat frontend/.env
-            if curl "${API_URL}/api/status" | grep "ok"
-            then
-                return 0
-            else
-                return 1
-            fi
+            echo curl "${API_URL}/api/status"
 
       - run:
           name: Deploy frontend objects
