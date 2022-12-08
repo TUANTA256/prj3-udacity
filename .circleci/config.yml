@@ -241,6 +241,8 @@ jobs:
       - checkout
       - restore_cache:
           keys: [scan-backend]
+      - add_ssh_keys:
+          fingerprints: ["1d:71:0c:64:42:0f:cb:51:ac:c6:e4:6f:c3:1a:ae:47"]
       - run:
           name: Run migrations
           command: |
